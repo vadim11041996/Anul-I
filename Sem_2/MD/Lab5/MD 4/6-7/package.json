@@ -1,0 +1,20 @@
+{
+	"main": "www/index.html",
+	"name": "MD",
+	"version": "0.1.0",
+	"description": "Laborator Nr5",
+	"keywords": [ "UTM", "AI-151", "Brăduleac Vadim", "MD - LAB" ],
+	"window": {
+		"title": "Brăduleac Vadim -> Matematica discreta",
+		"icon": "www/MD.png",
+		"toolbar": false,
+		"frame": true,
+		"width": 1000,
+		"height": 750,
+		"resizable": false,
+		"position": "center"
+	},
+	"webkit": {
+		"plugin": false
+	}
+}

@@ -1,0 +1,116 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+typedef struct stiva
+{
+	int val;
+	struct stiva *urm;
+}stiva;
+
+stiva *vf=NULL;
+
+stiva *creare_nod(int v)
+{
+	stiva *ptr;
+	ptr=(stiva*) malloc(sizeof(stiva));
+	if(ptr==NULL) 
+	{
+		printf(" Nodul nu a putu fi creat\n");
+		return NULL;
+	}
+	ptr->val=v;
+	ptr->urm=NULL;
+	vf=ptr;
+	return ptr;
+}
+
+stiva *push(int v)
+{
+	stiva *ptr;
+	ptr=(stiva*) malloc(sizeof(stiva));
+	ptr->val=v;
+	ptr->urm=NULL;
+	if(vf==NULL) creare_nod(v);
+	else
+	{
+		ptr->urm=vf;
+		vf=ptr;
+	}
+	return ptr;
+}
+
+void afisare()
+{
+	stiva *ptr=vf;
+	while(ptr!=NULL)
+	{
+		
+		if(ptr->val>=10 && ptr->val<=15)
+		{
+			if(ptr->val==10) printf("A");
+			if(ptr->val==11) printf("B");
+			if(ptr->val==12) printf("C");
+		    if(ptr->val==13) printf("D");
+		    if(ptr->val==14) printf("E");
+		    if(ptr->val==15) printf("F");
+		}
+		else
+		printf("%d", ptr->val);
+		ptr=ptr->urm;
+	}
+}
+
+void pop()
+{
+	stiva *ptr=vf;
+	if(ptr!=NULL)
+	{
+		vf=ptr->urm;
+	}
+	free(ptr);
+	ptr=NULL;
+}
+  
+void curatare()
+{
+	while(vf!=NULL)
+		pop();
+}
+
+int main()
+{	
+	int i,nr,s;
+	et1:printf("\n\t\t\tIntroduceti numarul decimal pentru a-l converti in hexazecimal!!\n\n Dec:");
+	scanf("%d",&nr);
+	while(nr!=0)
+	{
+	   	i=nr%16;
+	    push(i);
+	    nr=nr/16;
+	} 
+	printf(" Hex:");
+	afisare();
+	printf("\n\t\t\t\t\tDoriti sa mai introduceti un numar?\n");
+	printf(" 1.DA\n");
+	printf(" 2.NU\n");
+	et2:printf(" >");
+	scanf("%d",&s);
+	switch(s)  
+	{
+	case 1: 
+	{
+		curatare(); 
+		system("cls"); 
+		goto et1; 
+		break;
+	}
+	case 2: return 0;
+	default: 
+	{
+		printf("\nEroare!!! ");
+		goto et2; 
+		break;
+	}    
+    }
+} 

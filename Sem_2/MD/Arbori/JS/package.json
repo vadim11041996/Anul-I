@@ -1,0 +1,20 @@
+{
+	"main": "www/index.html",
+	"name": "MD",
+	"version": "0.1.0",
+	"description": "Laborator la Matematica Discreta",
+	"keywords": [ "UTM", "AI-151", "Brăduleac Vadim", "MD " ],
+	"window": {
+		"title": "Brăduleac Vadim- Matematica Discreta",
+		"icon": "www/MD.png",
+		"toolbar": false,
+		"frame": true,
+		"width": 1000,
+		"height": 600,
+		"resizable": false,
+		"position": "center"
+	},
+	"webkit": {
+		"plugin": false
+	}
+}

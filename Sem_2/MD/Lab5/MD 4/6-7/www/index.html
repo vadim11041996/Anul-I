@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="MD.css">
+		<title>Brăduleac Vadim -> Matematica discreta</title>
+	</head>
+	<body ondragstart="return false;" ondrop="return false;" id="culoare">
+	<div style="width: 500px;">
+ <div style="float: left; width: 400px; ">
+		<center>
+			<br>
+			<table id="R">
+				<tbody>
+					<tr><td></td><td></td></tr>
+					<tr><td>Fluxum-maxim:</td><td></td></tr>
+					<tr><td>Graful de acoperire:<br>V1</td><td></td></tr>
+					<tr><td>Graful de acoperire:<br>V2</td><td></td></tr>
+				</tbody>
+			</table>
+			<br>
+			<center>
+				<input id="n" value="" style="width:30px" />
+				<button onclick="CTable(parseInt(n.value))">Genereaza</button>
+				<input id="s" value="" style="width:30px" />
+				<input id="f" value="" style="width:30px" />
+				<button onclick="Calc(parseInt(s.value),parseInt(f.value))">Calculeaza</button>
+			</center>
+			<br>
+			<table id="T"></table>
+			<br>
+		</center>
+		</div>
+		<div style="float: right; width: 100px;">
+		<form id="myname">UTM - Brăduleac Vadim AI-151</form>
+		<img src="utm.gif" id="utm">
+		</div>
+	
+		<div style="float: right; width: 100px;">
+		<form>.</form>
+		<form>.</form>
+		<form>.</form>
+		<form>.</form>
+		<style type="text/css">
+  @-webkit-keyframes spincube {
+    from,to  {left: 50%; -webkit-transform: rotateX(5deg) rotateY(5deg) rotateZ(5deg); }
+    16%      { left: 50%;-webkit-transform: rotateY(-80deg);                           }
+    33%      { left: 50%;-webkit-transform: rotateY(-80deg) rotateZ(80deg);            }
+    50%      {left: 50%; -webkit-transform: rotateY(-170deg) rotateZ(80deg);           }
+    66%      {left: 50%; -webkit-transform: rotateY(-260deg) rotateX(80deg);           }
+    83%      { left: 50%;-webkit-transform: rotateX(80deg);                            }
+  }
+  @keyframes spincube {
+    from,to {
+    	left: 50%;
+      -moz-transform: rotateX(5deg) rotateY(5deg) rotateZ(5deg);
+      -ms-transform: rotateX(5deg) rotateY(5deg) rotateZ(5deg);
+      transform: rotateX(5deg) rotateY(5deg) rotateZ(5deg);
+    }
+    16% {
+    	left: 50%;
+      -moz-transform: rotateY(-80deg);
+      -ms-transform: rotateY(-80deg);
+      transform: rotateY(-80deg);
+    }
+    33% {
+    	left: 50%;
+      -moz-transform: rotateY(-80deg) rotateZ(80deg);
+      -ms-transform: rotateY(-80deg) rotateZ(80deg);
+      transform: rotateY(-80deg) rotateZ(80deg);
+    }
+    50% {
+    	left: 50%;
+      -moz-transform: rotateY(-170deg) rotateZ(80deg);
+      -ms-transform: rotateY(-170deg) rotateZ(80deg);
+      transform: rotateY(-170deg) rotateZ(80deg);
+    }
+    66% {
+    	left: 50%;
+      -moz-transform: rotateY(-260deg) rotateX(80deg);
+      -ms-transform: rotateY(-260deg) rotateX(80deg);
+      transform: rotateY(-260deg) rotateX(80deg);
+    }
+    83% {
+    	left: 50%;
+      -moz-transform: rotateX(80deg);
+      -ms-transform: rotateX(80deg);
+      transform: rotateX(80deg);
+    }
+  }
+  .cubespinner {
+  	left: 50%;
+    -webkit-animation-name: spincube;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: ease-in-out;
+    -webkit-animation-duration: 6s;
+    animation-name: spincube;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 60px 60px 0;
+    -moz-transform-origin: 60px 60px 0;
+    -ms-transform-origin: 60px 60px 0;
+    transform-origin: 60px 60px 0;
+  }
+  .cubespinner div {
+  	left: 50%;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #0cc00c;
+    background: rgba(55,75,15,0.8);
+    box-shadow: inset 0 0 20px rgba(5,4,65,2.2);
+    line-height: 120px;
+    text-align: center;
+    font-size: 100px;
+  }
+
+  .cubespinner .face1 {
+  	left: 50%;
+    -webkit-transform: translateZ(60px);
+    -moz-transform: translateZ(60px);
+    -ms-transform: translateZ(60px);
+    transform: translateZ(60px);
+  }
+  .cubespinner .face2 {
+  	left: 50%;
+    -webkit-transform: rotateY(90deg) translateZ(60px);
+    -moz-transform: rotateY(90deg) translateZ(60px);
+    -ms-transform: rotateY(90deg) translateZ(60px);
+    transform: rotateY(90deg) translateZ(60px);
+  }
+  .cubespinner .face3 {
+  	left: 50%;
+    -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+    -moz-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+    -ms-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+    transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+  }
+  .cubespinner .face4 {
+  	left: 50%;
+    -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+    -moz-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+    -ms-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+  }
+  .cubespinner .face5 {
+  	left: 50%;
+    -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+    -moz-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+    -ms-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+  }
+  .cubespinner .face6 {
+  	left: 50%;
+    -webkit-transform: rotateX(-90deg) translateZ(60px);
+    -moz-transform: rotateX(-90deg) translateZ(60px);
+    -ms-transform: rotateX(-90deg) translateZ(60px);
+    transform: rotateX(-90deg) translateZ(60px);
+  }
+</style>
+<div class="stage" style="width: 120px; height: 120px;">
+<div class="cubespinner">
+<div class="face1">1</div>
+<div class="face2">0</div>
+<div class="face3">1</div>
+<div class="face4">0</div>
+<div class="face5">1</div>
+<div class="face6">0</div>
+</div>
+</div>
+</div>
+</div>
+<form id="anul">2016</form>
+
+</html>
+<script>
+
+var FlowNetwork = function() {
+		var Edge = function(source, sink, capacity) {
+			this.source = source;
+			this.sink = sink;
+			this.capacity = capacity;
+			this.reverseEdge = null;
+			this.flow = 0;
+		};
+	this.edges = {};
+	this.findEdgeInPath = function(path, edge, residual) {
+		for(var p=0;p<path.length;p++) 
+			if(path[p][0] == edge && path[p][1] == residual) 
+				return true;
+		return false;
+	};
+	this.addEdge = function(source, sink, capacity) {
+		if(source == sink) return;
+		 
+		var edge = new Edge(source, sink, capacity);
+		var reverseEdge = new Edge(sink, source, 0);
+		
+		edge.reverseEdge= reverseEdge;
+		reverseEdge.reverseEdge = edge;
+		
+		if(this.edges[source] === undefined) this.edges[source] = [];
+		if(this.edges[sink] === undefined) this.edges[sink] = [];   
+		
+		this.edges[source].push(edge);
+		this.edges[sink].push(reverseEdge);
+	};
+	this.findPath = function(source, sink, path) {
+		if(source == sink) return path;
+		for(var i=0;i<this.edges[source].length;i++) {
+			var edge = this.edges[source][i];
+			var residual = edge.capacity - edge.flow;
+			
+			if(residual > 0 && !this.findEdgeInPath(path, edge, residual)) {
+				var tpath = path.slice(0);
+				tpath.push([edge, residual]);
+				var result = this.findPath(edge.sink, sink, tpath);
+				if(result != null) return result;
+			} 
+		}
+		return null;
+	};
+	this.maxFlow = function(source, sink) {
+		var path = this.findPath(source, sink, []);
+		while(path != null) {
+			var flow = 999999;
+			// Find the minimum flow
+			for(var i=0;i<path.length;i++)
+				if(path[i][1] < flow) flow = path[i][1];
+			// Apply the flow to the edge and the reverse edge
+			for(var i=0;i<path.length;i++) {
+				path[i][0].flow += flow;
+				path[i][0].reverseEdge.flow -= flow;
+			} 
+			path = this.findPath(source, sink, []);
+		}
+		var sum = 0;
+		for(var i=0;i<this.edges[source].length;i++)
+			sum += this.edges[source][i].flow;
+		return sum;
+	};
+};
+
+var MD = (function(){
+	var M = [];
+	return {
+		MA: function(a){
+			M = []
+			for (var i = 0, n = (a||[]).length; i < n; i++){
+				M[i+1]=[]
+				for (var j = 0; j < n; j++) M[i+1][j+1]=parseInt(a[i][j])||0
+			}	
+		},
+		PL: function(s){
+			var L = [], S = [], R = [],ll = []
+			for(i=1;i<M.length;i++){R[i] = [];for(j=1;j<M[i].length;j++)R[i][j] = 0}
+			PL(s)
+			for(var i=1,n=M.length;n>i;i++) PL(i)
+			for(i=1,h = '';i<R.length;i++){
+				for(j=1;j<R[i].length;j++) h += " | " + R[i][j] + " | "
+				h += '<br>'
+			}
+			return h
+			//return L
+			function PL(l){
+				var A_1 = [], A_2 = []
+				if (!S[l]) A_1 = [l];
+				while(1){
+					for (var i = 0, n = A_1.length; i < n; i++) {
+						if (!S[A_1[i]]) { S[A_1[i]] = 1; L.push(A_1[i]) 
+							for (var j = 1, k = M[A_1[i]].length; j < k; j++) {
+								if (M[A_1[i]][j]){
+									if (!S[j] && !ll[j]){
+										ll[j] = 1;
+										R[A_1[i]][j] = 1
+									}
+									A_2.push(j)
+								}
+							}
+						}
+					}
+					if (A_2.length == 0) break;		
+					A_1 = A_2; A_2 = []
+				}
+			}
+			return L;	
+		},
+		PA: function(s){
+			var S=[],L=[], R = []
+			for(i=1;i<M.length;i++){R[i-1] = []; for(j=1;j<M[i].length;j++) R[i-1][j-1] = 0	}
+			PA(s); for(var i=1,n=M.length;n>i;i++) PA(i);
+			for(i=0,h = '';i<R.length;i++){
+				for(j=0;j<R[i].length;j++) h += " | " + R[i][j] + " | "
+				h += '<br>'
+			}
+			return h
+			function PA(i) {
+				if (!S[i]) {
+					S[i] = 1; L.push(i);
+					for(var j=1,n=(M[i]||[]).length;n>j;j++)
+					if(M[i][j]){
+						if(!S[j])R[i-1][j-1]=1
+						PA(j)
+					}
+				}
+			}
+		}
+	}	
+})();
+
+function CTable(x){	
+	for (var i = 0, HTML = ""; i <= x; i++) {
+		HTML += "<tr>"
+		for (var j = 0; j <= x; j++) {
+			HTML += "<td>"+(i&&j ? "<input name="+(i-1)+"|"+(j-1)+" onclick='this.select()' value=0 />" : "x<sub>" + (!i?j:i) + "</sub>")+"</td>"
+		}
+		HTML += "</tr>"
+	}
+	T.innerHTML = HTML;
+}
+
+function Calc(s, f){
+	var fn = new FlowNetwork(), data = [];
+	for(i=1;i<T.rows.length;i++){
+		data[i-1] = [];
+		for(j=1;j<T.rows[i].cells.length;j++){
+			data[i-1][j-1] = parseInt(T.rows[i].cells[j].children[0].value)||0;
+			if(data[i-1][j-1] > 0) fn.addEdge(i+'',j+'', data[i-1][j-1]);
+		}
+	} MD.MA(data);
+	R.rows[1].cells[1].textContent = fn.maxFlow(s+'',f+'');
+	R.rows[2].cells[1].innerHTML = MD.PL(s);
+	R.rows[3].cells[1].innerHTML = MD.PA(s);
+}
+
+</script>

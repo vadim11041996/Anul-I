@@ -1,0 +1,125 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Brăduleac Vadim - Matematica Discretă LAB. 1</title>
+  <link rel="stylesheet" type="text/css" href="res/style.css">
+  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="res/script.js"></script>
+</head>
+<body>
+  <div id="content">
+    <div id="main-container">
+      <div id="MD_title">Păstrarea Grafului în Memoria Calculatorului</div>
+      <div id="menu_cont1">
+      	<ul id="first_menu" class="menu m1">
+        	<li><a href="#">Matricea de incidență</a></li>
+        	<li><a href="#">Matricea de adiacență</a></li>
+        	<li><a href="#">Lista de adiacență</a></li>
+      	</ul>
+      </div>
+      <div id="menu_cont2">
+        <ul id="second_menu" class="menu m2">
+        	<li><a href="#">Matricea de incidență</a></li>
+        	<li><a href="#">Matricea de adiacență</a></li>
+        	<li><a href="#">Lista de adiacență</a></li>
+      	</ul>
+      </div>
+      <div id="menu_cont3">
+      </div>
+      <center>
+      <div id="dropdown_menu1">
+      	<span id="data">Introducerea Datelor</span>
+      </div>
+      <div id="dropdown_menu2">
+      	<span id="data">Vizualizarea Datelor</span>
+      </div>
+        <br>
+        <div id="Input"></div>
+        <div id="table"></div>
+        <br>
+        <input id="Save" style="width:200px; cursor: pointer; color: #333;border: 1px solid #ccc; font-family: Verdana, Geneva, sans-serif font-weight: bold; display: none" type="Button" value="Salveaza"/>
+      </center>
+    </div>
+  </div>
+  <div id="myname">UTM - Brăduleac Vadim AI-151</div>
+  <img src="res/utm.gif" id="utm">
+</body>
+</html>
+
+<script type="text/javascript">
+  document.body.ondragstart = function(){return false};
+  obj = new MD();
+  item = document.querySelectorAll(".menu.m1 a")
+  item[0].onclick = function(e){
+    menuselect(e.target.parentElement)
+    Save.style.display="none"; table.innerHTML = ""
+    Input.innerHTML = 'm:<input class="box1" onfocus="this.select()">n:<input id="RMIn" class="box2" onfocus="this.select()"> - <button style="margin-bottom: 15px; cursor: pointer">Genereaza Datele    </button>'    
+    Input.getElementsByTagName("button")[0].onclick = function() {
+      table.innerHTML = ""
+      var e = Input.getElementsByTagName("input")
+      obj.CreazaMatriceaDeIncidenta(parseInt(e[0].value),parseInt(e[1].value))
+      table.appendChild(obj.table)
+    }
+    Save.onclick = function(){ obj.CitesteMatriceaDeIncidenta() }
+    Save.value = "Salvează Datele"
+    Save.style.display=""
+  }
+  item[1].onclick = function(e){
+    menuselect(e.target.parentElement)
+    Save.style.display="none"; table.innerHTML = ""
+    Input.innerHTML = 'n:<input id="RMAn" onfocus="this.select()"> - <button style="margin-bottom: 15px">Genereaza Datele</button>'    
+    Input.getElementsByTagName("button")[0].onclick = function() {
+      table.innerHTML = ""
+      var e = Input.getElementsByTagName("input")
+      obj.CreazaMatriceaDeAdiacenta(parseInt(e[0].value))
+      table.appendChild(obj.table)
+    }
+    Save.onclick = function(){ obj.CitesteMatriceaDeAdiacenta() }
+    Save.value = "Salvează Datele"
+    Save.style.display=""
+  }
+  item[2].onclick = function(e){
+    menuselect(e.target.parentElement)
+    Save.style.display="none"; table.innerHTML = ""; Input.innerHTML = ''    
+    obj.CreazaListaDeAdiacenta()
+    table.appendChild(obj.table)
+    obj.table.className = "list"
+    Save.onclick = function(){ obj.CitesteListaDeAdiacenta() }
+    Save.value = "Salvează Datele"
+    Save.style.display=""
+  }
+  /* -Afisarea- */
+  item = document.querySelectorAll(".menu.m2 a")
+  item[0].onclick = function(e){
+    menuselect(e.target.parentElement)
+    Save.style.display="none";
+    Input.innerHTML = table.innerHTML = ""
+    obj.AfiseazaMatriceaDeIncidenta()
+    table.appendChild(obj.table)
+    Save.onclick = function(){ obj.CitesteMatriceaDeIncidenta() }
+    Save.value = "Modifică Datele"
+    Save.style.display=""
+  }
+  item[1].onclick = function(e){
+    menuselect(e.target.parentElement)
+    Save.style.display="none";
+    Input.innerHTML = table.innerHTML = ""
+    obj.AfiseazaMatriceaDeAdiacenta()
+    table.appendChild(obj.table)
+    Save.onclick = function(){ obj.CitesteMatriceaDeAdiacenta() }
+    Save.value = "Modifică Datele"
+    Save.style.display=""
+  }
+  item[2].onclick = function(e){
+    menuselect(e.target.parentElement)
+    Save.style.display="none";
+    Input.innerHTML = table.innerHTML = ""
+    obj.AfiseazaListaDeAdiacenta()
+    obj.table.className = "list"
+    table.appendChild(obj.table)
+    Save.onclick = function(){ obj.CitesteListaDeAdiacenta() }
+    Save.value = "Modifică Datele"
+    Save.style.display=""
+  }
+  function menuselect(e){var c=document.querySelector(".menu li.selected");c&&(c.className=""),e.className="selected"}
+</script>

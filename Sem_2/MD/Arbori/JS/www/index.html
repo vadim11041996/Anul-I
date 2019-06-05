@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="MD.css">
+		<title>Brăduleac Vadim- Matematica Discretă</title>
+	</head>
+	<body bgcolor="#5858FA" ondragstart="return false;" ondrop="return false;">
+		<center>
+			<br>
+			<table id="R">
+				<tbody>
+					<tr><td></td><td></td></tr>
+					<tr><td>Parcurgerea în adâncime:</td><td></td></tr>
+					<tr><td>Parcurgerea în lăţime:</td><td></td></tr>
+				</tbody>
+			</table>
+			<br>
+			<center>
+				<input placeholder="Nr. de vârfuri" id="n" value="" style="width:100px; height: 30px;background-color: #00FF00;" />
+				<button onclick="CTable(parseInt(n.value))" id="gen">Generează Matricea</button>
+				<input placeholder="Începutul" id="s" value="" style="width:100px; height: 30px;background-color: #00FF00;" />
+				<button onclick="Calc(Data,parseInt(s.value))" id="calc">Calculează</button>
+			</center>
+			<br>
+			<table id="T"></table>
+			<br>
+		</center>
+	</body>
+</html>
+<script>
+	var Data = [];
+	var w = new Worker("MD.js");
+	w.onmessage = function(d){
+		switch(d.data[0]){
+			case "CTable":
+				T.innerHTML = d.data[1][0]
+				Data = d.data[1][1]
+				break;
+			case "Calc":
+				R.rows[1].cells[1].innerHTML = d.data[1][0]
+				R.rows[2].cells[1].innerHTML = d.data[1][1]
+		}
+	}
+	T.onchange = function(evt) {
+		if (evt.target.tagName == "INPUT") {
+			var id = evt.target.name.split("|")
+			var val = evt.target.value = parseInt(evt.target.value)||0
+			if (!Data[id[0]]) {
+				Data[id[0]] = []
+			}
+			Data[id[0]][id[1]] = val;
+		}
+	}
+	function CTable(c,x){ w.postMessage(["CTable",arguments]) }
+	function Calc(){ w.postMessage(["Calc",arguments]) }
+</script>

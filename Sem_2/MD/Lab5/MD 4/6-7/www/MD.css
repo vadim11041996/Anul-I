@@ -1,0 +1,100 @@
+html {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+body {
+	height: 598px;
+	color: #333;
+	font-family: "Open Sans",X-LocaleSpecific,sans-serif;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+}
+#culoare{
+background-color: rgb(178, 25, 175);
+}
+#Menu {
+	-webkit-app-region: drag;
+	color: #00FF00;
+	width: 100%;
+	background-color: #00FF00;
+}
+#Close, #Minimize {
+	-webkit-app-region: no-drag;
+	outline: 0;
+	color: #0FF000;
+	background-color: #00FF00;
+	border: none;
+	float: right;
+	width: 25px;
+	height: 21px;
+	text-align: center;
+}
+#Close:hover, #Minimize:hover {
+	background-color: #FF0000;
+}
+#Close:active, #Minimize:active{
+	background-color: #00FF00;
+}
+
+table {
+	border-collapse: collapse; 
+	margin: 0 auto;
+}
+table td {
+	border: 1px solid #FFFF00;
+	padding: 0;
+}
+table tr:first-child td, table td:first-child {
+	background-color: #F00000;
+	padding: 1px 3px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+}
+table input {
+	border: none;
+	height:100%;
+	width: 20px;
+	font-size: 14px;
+	padding: 2px;
+	text-align: center;
+}
+table input:hover {
+	background-color: #0F00F0;
+}
+table input:focus {
+	background-color: #F0FF0F;
+	outline: none;
+}
+#myname {
+	position: absolute;
+	top: 300px;
+	left: 60%;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 40px;
+	color: #FFF;
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	white-space: nowrap;
+}
+#utm {
+	position: absolute;
+	top: 20px;
+	left: 66%;
+	width: 150px;
+	height: 60px;
+}
+#anul{
+	outline-color:#00FF00;
+	top:200px;
+	position: center;
+	left:66%;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 40px;
+	color: #00FF00;
+	text-align: center;
+}
+

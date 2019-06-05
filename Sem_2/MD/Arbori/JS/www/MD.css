@@ -1,0 +1,82 @@
+html {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+body {
+	height: 598px;
+	color: #0F0011;
+	font-family: Arial;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+}
+input {
+	outline: none;
+}
+#Menu {
+	-webkit-app-region: drag;
+	color: #0000A0;
+	width: 100%;
+	background-color: #10FF10;
+}
+#Close, #Minimize {
+	-webkit-app-region: no-drag;
+	outline: 0;
+	color: #00FF00;
+	background-color: #FF0000;
+	border: none;
+	float: right;
+	width: 25px;
+	height: 21px;
+	text-align: center;
+}
+#Close:hover, #Minimize:hover {
+	background-color: #00b379;
+}
+#Close:active, #Minimize:active{
+	background-color: #ff4040;
+}
+
+table {
+	border-collapse: collapse; 
+	margin: 0 auto;
+}
+table td {
+	border: 1px solid #000100;
+	padding: 0;
+}
+table tr:first-child td, table td:first-child {
+	background-color: #00FF00;
+	padding: 1px 3px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+}
+table input {
+	border: none;
+	height:100%;
+	width: 20px;
+	font-size: 14px;
+	padding: 2px;
+	text-align: center;
+}
+table input:hover {
+	background-color: #F01FF0;
+}
+table input:focus {
+	background-color: #FF0F01;
+	outline: none;
+}
+#gen {
+	position: relative;
+	bottom: 7px;
+	width: 100px;
+	height: 36px;
+}
+#calc {
+	position: relative;
+	width: 100px;
+	height: 36px;
+}

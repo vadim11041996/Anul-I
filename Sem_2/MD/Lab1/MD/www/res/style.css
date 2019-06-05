@@ -1,0 +1,236 @@
+html {-webkit-user-select: none;}
+/* -Laborator- */
+#main-container input {
+   border: none;
+   width: 30px;
+   height: 25px;
+   font-size: 14px;
+   padding: 2px;
+   text-align: center;
+}
+#main-container #save, #main-container #input, #main-container #table {
+   position: relative;
+   top: 350px;
+   color: #FFF;
+   font-family: Verdana, Geneva, sans-serif;
+   font-size: 16px;
+   /*margin-left: -18px;*/
+}
+#main-container input:hover {
+   background-color: #090;
+}
+#main-container input:focus {
+   background-color: #ABC;
+   outline: none;
+}
+#main-container input:not(:focus) {
+   text-align: center;
+}
+#main-container .list input:not(:focus), #main-container .list input{
+ text-align: left; 
+}
+#main-container table {
+   border-collapse: collapse;  
+}
+#main-container td {
+   border: 1px solid #999;
+   padding: 0;
+}
+#main-container tr:first-child td, #main-container td:first-child {
+   background-color: #ccc;
+   padding: 1px 3px;
+   font-weight: bold;
+   font-size: 14px;
+   text-align: center;
+}
+
+#content {
+   background-color: #000000;
+   padding: 0 0 0 0;
+   margin: 0 0 0 40px;
+   overflow: auto;
+}
+#tab-container {
+   position: relative;
+   left: 1px;
+   float: left;
+   margin: 0 0 0 0;
+   width: 100px;
+}
+#tab-container ul {
+   list-style: none;
+   text-align: center;
+}
+#tab-container ul li {
+	border-top: 1px solid #000;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	border-left: 8px solid #000;
+	background-color: #ddd;
+	margin: 8px 0;
+}
+#tab-container ul li a,
+#tab-container ul li a:visited {
+   text-decoration: none;
+   color: #666;
+   display: block;
+   padding: 15px 5px;
+}
+#tab-container ul li:hover {
+   border-left: 8px solid #333;
+}
+#tab-container ul li a:hover {
+   color: #000;
+}
+#tab-container ul li.selected {
+   border-right: none;
+   background-color: #fff;
+   border-left: 8px solid #006699;
+}
+#main-container {
+   position: absolute;
+   top: 0px;
+   left: 0%;
+   height: 650px;
+   width: 100%;
+   background-color: #f00;
+   overflow: inherit;
+}
+/* -Menu- */
+ul.menu {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+ul.menu li {
+  position: relative;
+  width: 30%;
+  height: 80px;
+  margin-left: 5px;
+  background-color: #090;
+  float: left;
+  cursor: pointer;
+   transition: all linear 0.3s;
+  -webkit-transition: all linear 0.3s;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 20px;
+  color: #FFF;
+  line-height: 30px;
+}
+ul.menu li a,
+ul.menu li a:visited {
+  text-decoration: none;
+  color: #DFFFFF;
+  display: block;
+  padding: 0px 10px;
+}
+ul.menu li:hover {
+  border-left: 15px solid #030;
+}
+ul.menu li a:hover {
+  color: #FFF333;
+}
+ul.menu li.selected {
+  border-left: 15px solid #0F0;
+}
+/*Changes*/
+#MD_title {
+	position: relative;
+	top: 20px;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 30px;
+	color: #00FF00;
+	z-index: 3;
+}
+#first_menu {
+	position: absolute;
+	left: -130%;
+	z-index: 10;
+	transition: all linear 0.5s;
+	-webkit-transition: all linear 0.5s;
+}
+#second_menu {
+	position: absolute;
+	left: -130%;
+	z-index: 10;
+	transition: all linear 0.5s;
+	-webkit-transition: all linear 0.5s;
+}
+#menu_cont1 {
+	position: absolute;
+	top: 80px;
+	left: 18%;
+	width: 40%;
+	height: 80px;
+	overflow: hidden;
+	z-index: 20;
+}
+#menu_cont2 {
+	position: absolute;
+	top: 180px;
+	left: 18%;
+	width: 40%;
+	height: 80px;
+	overflow: hidden;
+	z-index: 20;
+}
+/*Dropdown Menu 1*/
+#dropdown_menu1 {
+	position: absolute;
+	top: 80px;
+	left: 3%;
+	width: 15%;
+	height: 80px;
+	background-color: #0015FF;
+	border-radius: 5px;
+	z-index: 1;
+	cursor: pointer;
+}
+#dropdown_menu2 {
+	position: absolute;
+	top: 180px;
+	left: 3%;
+	width: 15%;
+	height: 80px;
+	background-color: #0015FF;
+	border-radius: 5px;
+	z-index: 1;
+	cursor: pointer;
+}
+#dropdown_menu1, #dropdown_menu2 {
+	transition: all linear 0.5s;
+	-webkit-transition: all linear 0.5s;
+}
+#dropdown_menu1:hover, #dropdown_menu2:hover {
+	background-color: #060;
+}
+#data {
+	position: relative;
+	top: 22px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 22px;
+	color: #FFF;
+	text-align: center;
+	line-height: 20px;
+}
+#myname {
+	position: absolute;
+	top: 300px;
+	left: 70%;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 40px;
+	color: #FFF;
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	white-space: nowrap;
+}
+#utm {
+	position: absolute;
+	top: 20px;
+	left: 76%;
+	width: 150px;
+	height: 60px;
+}
